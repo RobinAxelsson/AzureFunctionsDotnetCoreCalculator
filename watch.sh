@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# fswatch -or ./romannumerals.csx | xargs -n1 -I{} dotnet script romannumerals.csx
+# fswatch -or ./validate.csx | xargs -n1 -I{} dotnet script validate.csx
 
 # fswatch -or . -e .* -i \.cs$ | xargs -n1 -I{} dotnet build
 fswatch -or . -e .* -i \.cs$ | xargs -n1 -I{} dotnet test
