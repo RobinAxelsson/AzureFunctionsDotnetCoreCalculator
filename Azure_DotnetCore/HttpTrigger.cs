@@ -31,5 +31,6 @@ namespace Function
 
             return new OkObjectResult(responseMessage);
         }
+        public static bool Flip(bool input) => !input;
     }
 }
