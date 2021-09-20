@@ -11,7 +11,7 @@ namespace Function
 {
     public static class HttpTrigger
     {
-        public static readonly string DefaultResponse = "Add queryparameters ?a=1&b=3 to use the calculator.";
+        public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator.";
         public static string responseCalculation(string decimalA, string decimalB) => $"{Convert.ToDecimal(decimalA) + Convert.ToDecimal(decimalB)}";
         public static string ValidateInput(string input)
         {
@@ -36,8 +36,8 @@ namespace Function
             string a = req.Query["a"];
             string b = req.Query["b"];
 
-            //If any value is null, response is the default message with statuscode 400
-            //else the calculation is returned with stauscode 200
+            //If any value is null, response is the default message with status code 400.
+            //else the calculation is returned with status code 200.
             string response = ValidateInput(a) != null && ValidateInput(b) != null ? responseCalculation(a, b) : null;
             if (response != null) return new OkObjectResult(response);
             return new BadRequestObjectResult(DefaultResponse);
