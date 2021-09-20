@@ -1,13 +1,4 @@
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
 using Function;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Xunit;
 
 namespace Test
@@ -21,6 +12,8 @@ namespace Test
         public void InputDots() => Assert.Null(HttpTrigger.ValidateInput("1.."));
         [Fact]
         public void InputDots3() => Assert.Null(HttpTrigger.ValidateInput("..."));
+        [Fact]
+        public void InputDotLast() => Assert.Equal("1.", HttpTrigger.ValidateInput("1."));
         [Fact]
         public void InputBraces() => Assert.Null(HttpTrigger.ValidateInput("{{"));
         [Fact]

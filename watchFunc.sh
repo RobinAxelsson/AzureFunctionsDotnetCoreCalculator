@@ -1,9 +1,21 @@
 #!/bin/sh
 
 # fswatch -or ./validate.csx | xargs -n1 -I{} dotnet script validate.csx
-fswatch -or ./curltests.sh | xargs -n1 -I{} bash curltests.sh "http://localhost:7071/api/HttpTrigger"
+# fswatch -or ./curltests.sh | xargs -n1 -I{} bash curltests.sh "http://localhost:7071/api/HttpTrigger"
 
-# fswatch -or . -e .* -i \.cs$ | xargs -n1 -I{} dotnet build
+# rebuildFunc() {
+#     echo $(pidof func)
+#     kill -15 $(pidof func)
+#     bash start.sh
+#     echo $(pidof func)
+# }
+
+fswatch -or . -e .* -i \.cs$ | xargs -n1 -I{} eval "$(
+    echo $(pidof func)
+    kill -15 $(pidof func)
+    bash start.sh &
+    pidof func
+)"
 # fswatch -or . -e .* -i \.cs$ | xargs -n1 -I{} dotnet test
 # To filter:
 # Add an exclusion filter matching any string: .*.
