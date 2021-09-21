@@ -10,12 +10,10 @@ else
     hostUrl="$1"\?
 fi
 
-#hostUrl=""
 Points=0
 calculateExpectTrue() {
     Tests=$((Tests + 1))
     local url="$hostUrl"a=$1\&b=$2
-    # echo local url '====>' $url
     if [[ $(curl -s "$url") == $3 ]]; then
         Points=$((Points + 1))
     else

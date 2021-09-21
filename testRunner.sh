@@ -5,13 +5,17 @@ else
     url=$1
 fi
 echo --------Running HTTP-tests with curl-------------
-bash curltests.sh "$url"
+out=$(bash curltests.sh "$url")
 if [[ $? -ne 0 ]]; then
+    echo "
+    $out
+    "
     echo ------------Testing failed-----------------------
+
     exit 1
 else
     echo "
-Test Score: $score
+    Test Score: $out
     "
     echo --------------End of test------------------------
 fi
