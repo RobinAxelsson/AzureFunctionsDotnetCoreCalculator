@@ -45,7 +45,6 @@ calculateExpect400() {
         Points=$((Points + 1))
     else
         echo Expect400 error with val: $1 $2
-        echo url '====>' $url
         echo expected statuscode 400 actual $statusCode
         echo Message:
         echo $(curl -isb "$hostUrl"a=$1\&b=$2)

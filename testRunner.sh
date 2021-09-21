@@ -5,7 +5,7 @@ else
     url=$1
 fi
 echo --------Running HTTP-tests with curl-------------
-score=$(bash curltests.sh "$url")
+bash curltests.sh "$url"
 if [[ $? -ne 0 ]]; then
     echo ------------Testing failed-----------------------
     exit 1
