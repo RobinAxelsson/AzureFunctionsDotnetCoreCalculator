@@ -278,4 +278,6 @@ __pycache__/
 .vscode/tasks.json
 
 # secrets
-.url
+*.secret
+secrets/*
+*.secret.*

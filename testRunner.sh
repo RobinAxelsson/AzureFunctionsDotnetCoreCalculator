@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ "$#" == 0 ]]; then
-    url=$(cat ./.url 2>/dev/null)
+    url=$(cat ./url.secret 2>/dev/null)
 else
     url=$1
 fi
