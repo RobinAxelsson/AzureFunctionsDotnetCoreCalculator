@@ -8,8 +8,8 @@ run() {
 }
 # run $(cat ./secrets/sub-id.secret) $(cat ./secrets/res-group.secret)
 
-az functionapp stop --name "FunctionCalculator" --resource-group $(cat ./secrets/res-group.secret)
-# az functionapp start --name "FunctionCalculator" --resource-group $(cat ./secrets/res-group.secret)
+# az functionapp stop --name "FunctionCalculator" --resource-group $(cat ./secrets/res-group.secret)
+az functionapp start --name "FunctionCalculator" --resource-group $(cat ./secrets/res-group.secret)
 
 # az ad sp create-for-rbac --name "myApp" --role contributor \
 #   --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
