@@ -56,7 +56,5 @@ jobs:
       shell: bash
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        az functionapp start --name "FunctionCalculator" --resource-group 'NET-YH'
         bash testRunner.sh ${{ secrets.AZURE_FUNCTION_URL }}
-        az functionapp stop --name "FunctionCalculator" --resource-group 'NET-YH'
         popd
