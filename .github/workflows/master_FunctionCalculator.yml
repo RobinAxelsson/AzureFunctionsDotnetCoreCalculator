@@ -41,7 +41,7 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: 'Azure_DotnetCore'
+        app-name: 'FunctionCalculator'
         slot-name: 'production'
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_fee41ad0921045b1a67961f689821848 }}
