@@ -11,7 +11,7 @@ namespace Function
     public static class HttpTrigger
     {
         public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator.";
-        public static string responseCalculation(string decimalA, string decimalB) => $"{Convert.ToDecimal(decimalA) + Convert.ToDecimal(decimalB) + 1}";
+        public static string responseCalculation(string decimalA, string decimalB) => $"{Convert.ToDecimal(decimalA) + Convert.ToDecimal(decimalB)}";
         public static string ValidateInput(string input)
         {
             if (input == null) return null;

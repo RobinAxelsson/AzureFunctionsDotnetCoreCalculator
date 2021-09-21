@@ -21,7 +21,7 @@ calculateExpectTrue() {
     else
         echo calculateExpectTrue: error with vals: "$1" "$2" "$3"
         local message=$(curl -s "$hostUrl"a=$1\&b=$2)
-        local statusCode=$(curl -s -o /dev/null -w "%{http_code}" "$hostUrla=$1&b=$2")
+        local statusCode=$(curl -s -o /dev/null -w "%{http_code}" $hostUrl'a='$1'&b='$2)
         echo expected: $3 actual: $message statuscode: $statusCode
     fi
 }
