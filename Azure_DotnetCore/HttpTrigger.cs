@@ -5,13 +5,18 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Linq;
-
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 namespace Function
 {
+    //dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0
+    //https://devkimchi.com/2020/04/30/3-ways-referencing-azure-key-vault-from-azure-functions/
+    //https://zimmergren.net/azure-functions-key-vault-reference-azurewebjobsstorage/
     public static class HttpTrigger
     {
-        public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator.";
+        public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator." + Environment.GetEnvironmentVariable("KeyVault__SuperSecret");
         public static string responseCalculation(string decimalA, string decimalB) => $"{Convert.ToDecimal(decimalA) + Convert.ToDecimal(decimalB)}";
+
         public static string ValidateInput(string input)
         {
             if (input == null) return null;                                                                         //Null check
