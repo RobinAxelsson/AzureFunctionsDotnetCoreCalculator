@@ -14,7 +14,7 @@ namespace Function
     //https://zimmergren.net/azure-functions-key-vault-reference-azurewebjobsstorage/
     public static class HttpTrigger
     {
-        public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator." + Environment.GetEnvironmentVariable("KeyVault__SuperSecret");
+        public static readonly string DefaultResponse = "Add query parameters ?a=1&b=3 to use the calculator." + Environment.GetEnvironmentVariable("SuperSecret");
         public static string responseCalculation(string decimalA, string decimalB) => $"{Convert.ToDecimal(decimalA) + Convert.ToDecimal(decimalB)}";
 
         public static string ValidateInput(string input)
